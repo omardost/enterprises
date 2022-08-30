@@ -9,4 +9,6 @@ public interface EnterprisesDao {
     Enterprises create(Enterprises enterprises);
 
     Collection<Enterprises> list();
+
+    Enterprises update(Enterprises enterprises);
 }

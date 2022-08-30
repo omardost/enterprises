@@ -30,4 +30,10 @@ public class EnterprisesController {
         Collection<Enterprises> colEnterprises = this.enterprisesDao.list();
         return new ResponseEntity<>(colEnterprises, HttpStatus.OK);
     }
+
+    @RequestMapping(value="/update", method = RequestMethod.POST)
+    public ResponseEntity<Object> update(@RequestBody Enterprises enterprises){
+        this.enterprisesDao.update(enterprises);
+        return new ResponseEntity<>(enterprises, HttpStatus.OK);
+    }
 }

@@ -23,6 +23,15 @@ public class EnterprisesDaoImp implements EnterprisesDao{
     }
 
     @Override
+    public Enterprises update(Enterprises enterprises) {
+        Enterprises enterprisesEdit = entityManager.find(Enterprises.class, enterprises.getId());
+        enterprisesEdit.setName(enterprises.getName());
+        entityManager.merge(enterprisesEdit);
+        entityManager.flush();
+        return enterprises;
+    }
+
+    @Override
     public Collection<Enterprises> list() {
         String query = "FROM Enterprises";
         return entityManager.createQuery(query).getResultList();
